@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% for post in site.posts %}
-<a class="post" href="{{ post.url }}">
+<a class="post" href="{{ site.baseurl }}/{{ post.url }}">
     <div class="post-title">{{ post.title }}</div>
     <div class="post-desc">{{ post.content | strip_html | truncate: 220 }}</div>
 
