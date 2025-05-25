@@ -4,6 +4,13 @@
 @use "variables" as *;
 @use 'sass:color';
 
+$primary-color: #ff6682;
+$light-color: #fbfbfb;
+$gray-color: #f0f0f0;
+$card-color: #fbfbfc;
+$text-color: #2b2a2d;
+$text-color-second: #a19ea4;
+$padding-base: 1rem;
 
 
 @mixin font($name, $file, $weight: 400, $style: normal) {
