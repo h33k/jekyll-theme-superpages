@@ -1,0 +1,238 @@
+---
+---
+
+@use "variables" as *;
+@use 'sass:color';
+
+
+
+@mixin font($name, $file, $weight: 400, $style: normal) {
+  @font-face {
+    font-family: $name;
+    src: url('../fonts/SNPro/#{$file}.woff2') format('woff2');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include font('SNPro', 'SNPro-Light', 300);
+@include font('SNPro', 'SNPro-Book', 350);
+@include font('SNPro', 'SNPro-Regular', 400);
+@include font('SNPro', 'SNPro-Medium', 500);
+@include font('SNPro', 'SNPro-Semibold', 600);
+@include font('SNPro', 'SNPro-Bold', 700);
+@include font('SNPro', 'SNPro-Heavy', 800);
+@include font('SNPro', 'SNPro-Black', 900);
+
+html {
+    height: 100%;
+}
+
+body {
+
+  font-family: 'SNPro';
+
+  background-color: $light-color;
+
+  font-size: 16px !important;
+  font-weight: 350;
+
+  height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+    flex-direction: column;
+
+
+  line-height: 1.2;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 300 !important;
+}
+
+a {
+  color: $text-color-second;
+  font-size: 16px !important;
+  font-weight: 350;
+  text-decoration: none;
+
+
+  &:hover {
+    color: $text-color;
+  }
+}
+
+.blob {
+  padding: 6px 12px;
+  border: 1.4px solid $gray-color;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: $gray-color;
+  }
+}
+
+.container {
+  width: 666px;
+  max-width: 666px;
+  margin: 0 auto;
+
+  flex: 1 0 auto;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $padding-base 0;
+  background-color: $light-color;
+  border-bottom: 1px solid $gray-color;
+
+  margin-bottom: 50px;
+}
+
+.header-title {
+  display: flex;
+  margin: 0;
+
+
+}
+
+.header-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+
+footer {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+
+.footer-text {
+  color: $text-color-second !important;
+  font-size: 12px;
+}
+
+.post-desc {
+  color: $text-color-second;
+  font-weight: 300;
+  font-size: 16px;
+  position: relative;
+
+
+
+}
+
+
+
+
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid $gray-color;
+  margin-bottom: 10px;
+  background-color: white;
+  cursor: pointer;
+  color: $text-color-second;
+
+  height: 120px;
+  max-height: 120px;
+
+
+  &:hover {
+    color: $text-color-second !important;
+  }
+
+  :not(.post-single) > .post-desc, // если .post-single - родитель .post-desc (прямой)
+  :not(.post-single) .post-desc {  // если .post-single - любой предок .post-desc
+    max-height: calc(1.5em * 4); // 4 строки
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+}
+
+.post.post-single {
+  height: auto;
+  max-height: none;
+  cursor: default;
+}
+
+.post.post-single .post-title {
+  margin-bottom: 0;
+}
+
+
+
+.post.post-single .post-desc {
+  color: $text-color !important;
+  font-size: 18px;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $text-color;
+
+    margin-bottom: 5px;
+}
+
+.post-desc {
+    font-size: 18px;
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding-top: 10px;
+  margin-top: auto; // прижимает к низу родителя
+}
+
+.post-ago {
+
+    font-weight: 400;
+
+}
+
+.post-tags {
+
+    font-weight: 700;
+
+}
+
+
+
+.about-image {
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    max-width: 666px;
+    border-radius: 20px;
+}
+
+
+
+.about-desc {
+    display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid $gray-color;
+  margin-bottom: 20px;
+  background-color: white;
+}
