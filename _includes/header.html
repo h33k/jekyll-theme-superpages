@@ -1,11 +1,11 @@
 <header class="header">
     <h1 class="header-title">
-      <a href="{% if site.github.repository_name %}/{{ site.github.repository_name }}{% else %}/{% endif %}" class="blob">{{ site.title }}</a>
+      <a href="{% if site.is_local %}/{% else %}/{{ site.github.repository_name }}{% endif %}" class="blob">{{ site.title }}</a>
     </h1>
     <nav class="header-nav">
       <ul>
-        <li><a class="blob" href="{% if site.github.repository_name %}/{{ site.github.repository_name }}{% else %}/{% endif %}">Posts</a></li>
-        <li><a class="blob" href="{% if site.github.repository_name %}/{{ site.github.repository_name }}/about{% else %}/about{% endif %}">About me</a></li>
+        <li><a class="blob" href="{% if site.is_local %}/{% else %}/{{ site.github.repository_name }}{% endif %}">Posts</a></li>
+        <li><a class="blob" href="{% if site.is_local %}/about{% else %}/{{ site.github.repository_name }}/about{% endif %}">About me</a></li>
       </ul>
     </nav>
   </header>

@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% for post in site.posts %}
-<a class="post" href="{% if site.github.repository_name %}/{{ site.github.repository_name }}{{ post.url }}{% else %}{{ post.url }}{% endif %}">
+<a class="post" href="{% if site.is_local %}{{ post.url }}{% else %}/{{ site.github.repository_name }}{{ post.url }}{% endif %}">
     <div class="post-title">{{ post.title }}</div>
     <div class="post-desc">{{ post.content | strip_html | truncate: 220 }}</div>
 
